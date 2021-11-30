@@ -42,9 +42,8 @@ async def upload_multi_wav(files: List[UploadFile] = File(...)):
     output.close()
 
     # binary = predict_knn(knn_binary, audio_path)
-    knncode = predict_knn(knn_code, audio_path)
     # cnncode = predict_cnn(cnn_code, audio_path)
-    # situation1 = predict_cnn(cnn_situation1, audio_path)
+    knncode = predict_knn(knn_code, audio_path)
     situation = predict_cnn(cnn_situation, audio_path)
 
     # return {'binary': binary, 'knncode': knncode, 'cnncode': cnncode, 'situation1': situation1, 'situation2': situation2}
