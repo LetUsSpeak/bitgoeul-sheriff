@@ -14,11 +14,10 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 app = FastAPI()
 
-# knn_binary = joblib.load('model/knn_binary_model (3).pkl')
-knn_code = joblib.load('model/knn_code_model_code.pkl')
+# knn_binary = joblib.load('model/KNN_binary_model.pkl')
 # cnn_code = load_model('model/CNN_code_model.h5')
-# cnn_situation1 = load_model('model/CNN_all_model.h5')
-# cnn_situation2 = load_model('model/CNN_all_model_final.h5')
+knn_code = joblib.load('model/KNN_code_model.pkl')
+cnn_situation = load_model('model/CNN_situation_model.h5')
 
 
 @app.get('/')
@@ -46,7 +45,7 @@ async def upload_multi_wav(files: List[UploadFile] = File(...)):
     knncode = predict_knn(knn_code, audio_path)
     # cnncode = predict_cnn(cnn_code, audio_path)
     # situation1 = predict_cnn(cnn_situation1, audio_path)
-    # situation2 = predict_cnn(cnn_situation2, audio_path)
+    situation = predict_cnn(cnn_situation, audio_path)
 
-    # return {'binary': binary, 'knncode': knncode, 'cnncode': cnncode, 'ituation1': situation1, 'situation2': situation2}
-    return knncode
+    # return {'binary': binary, 'knncode': knncode, 'cnncode': cnncode, 'situation1': situation1, 'situation2': situation2}
+    return {'code': knncode, 'situation': situation}

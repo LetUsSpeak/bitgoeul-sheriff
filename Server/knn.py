@@ -26,8 +26,4 @@ def predict_knn(knn_model, file):
     print(file)
     x = predict_audio(file)
     result = knn_model.predict(x)
-
-    # if code[0] in (7, 21): # 폭력 상황이 아니라면
-    #     os.remove(file)
-
     return int(result[0])
