@@ -6,4 +6,4 @@
 
 ### 시현 영상 주소
 
-https://www.miricanvas.com/v/1r2x8o
+https://youtu.be/9xf9SMv3UIQ
